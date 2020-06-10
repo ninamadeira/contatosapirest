@@ -61,6 +61,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 			String mensagem = messageSource.getMessage(error, LocaleContextHolder.getLocale());
 			campos.add(new Problema.Campo(nome, mensagem));
 		}
+		
+		//commit
 
 		Problema problema = new Problema();
 		problema.setStatus(status.value());
