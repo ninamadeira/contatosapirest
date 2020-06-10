@@ -31,7 +31,6 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	public ResponseEntity<Object> handleEntidadeNaoEncontrada(NegocioException ex, WebRequest request) {
 		HttpStatus status = HttpStatus.NOT_FOUND;
 
-		//teste
 		Problema problema = new Problema();
 		problema.setStatus(status.value());
 		problema.setTitulo(ex.getMessage());
@@ -60,7 +59,6 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		for (ObjectError error : ex.getBindingResult().getAllErrors()) {
 			String nome = ((FieldError) error).getField();
 			String mensagem = messageSource.getMessage(error, LocaleContextHolder.getLocale());
-
 			campos.add(new Problema.Campo(nome, mensagem));
 		}
 
